@@ -46,7 +46,7 @@
               <div class="mb-3 ">
                 <label for="archivoTransaccion" class="form-label">Archivo JSON de Transaccion</label>
                 <div class="input-group">
-                  <input class="form-control" type="file" id="archivoTransaccion" name="archivoTransaccion">
+                  <input class="form-control" type="file" accept=".json, .csv" id="archivoTransaccion" name="archivoTransaccion">
                   <button onclick="" class="btn btn-outline-primary" type="button">Enviar</button>
                 </div>
               </div>
