@@ -4,12 +4,12 @@ class FileHandlerBase
 {
 
   protected $directory;
-  protected $fileName;
+  protected $filename;
 
   public function __construct($directory, $filename)
   {
     $this->directory = $directory;
-    $this->fileName = $filename;
+    $this->filename = $filename;
   }
 
   function CreateDirectory($path)

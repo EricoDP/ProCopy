@@ -13,7 +13,7 @@
 
   $transaccion = null;
   if(isset($_GET["id"])){
-    $transaccion = $service->GetByID($_GET["id "]);
+    $transaccion = $service->GetByID($_GET["id"]);
   }
 
   if(isset($_POST["ID"]) && isset($_POST["Monto"]) && isset($_POST["Descripcion"]) && isset($_POST["Fecha"])){
@@ -63,6 +63,7 @@
         <hr class="mt-0">
         <form class="ms-1" action="./edit.php" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="ID" value="<?= $transaccion->ID ?>">
+          <input type="hidden" name="Fecha" value="<?= $transaccion->Fecha ?>">
           <div class="modal-body">
             <div class="ms-1">
               <div class="mb-3">
@@ -72,10 +73,6 @@
                   <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="Monto" value="<?= $transaccion->Monto ?>">
                   <span class="input-group-text">.00</span>
                 </div>
-              </div>
-              <div class="md-3">
-                <label for="example-datetime-local-input" class="form-label">Fecha Transaccion</label>
-                <input class="form-control mb-3" type="datetime-local" name="Fecha" id="dtFecha" value="<?= $transaccion->Fecha ?>">
               </div>
               <div class="md-3">
                 <label for="txtDescripcion" class="form-label">Descripcion</label>

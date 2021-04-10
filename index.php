@@ -1,8 +1,12 @@
 <?php
-  require_once './models/transaccion.php';
-  require_once './helpers/utilities.php';
+  require_once './FileHandler/iFileHandler.php';
+  require_once './FileHandler/FileHandlerBase.php';
+  require_once './FileHandler/SerializationFileHandler.php';
   require_once './FileHandler/JsonFileHandler.php';
+
   require_once './operations/serviceFile.php';
+  require_once './helpers/utilities.php';
+  require_once './models/transaccion.php';
 
   $service = new ServiceFile();
   $utilities = new Utilities();
@@ -58,10 +62,6 @@
                 </div>
               </div>
               <div class="md-3">
-                <label for="example-datetime-local-input" class="form-label">Fecha Transaccion</label>
-                <input class="form-control mb-3" type="datetime-local" name="Fecha" id="dtFecha">
-              </div>
-              <div class="md-3">
                 <label for="txtDescripcion" class="form-label">Descripcion</label>
                 <textarea class="form-control" name="Descripcion" id="txtDescripcion" rows="3"></textarea>
               </div>
@@ -92,10 +92,10 @@
             <table class="table mb-0 shadow-sm">
               <thead class="table-dark rounded-top">
                 <tr>
-                  <th scope="col" style="width: 15%;">ID</th>
+                  <th scope="col" class="text-center" style="width: 15%;">ID</th>
                   <th scope="col" style="width: 10%;">Monto</th>
-                  <th scope="col" style="width: 15%;">Fecha y Hora</th>
-                  <th scope="col" style="width: 40%;">Descripcion</th>
+                  <th scope="col" style="width: 20%;">Fecha y Hora</th>
+                  <th scope="col" style="width: 35%;">Descripcion</th>
                   <th scope="col" style="width: 20%;"></th>
                 </tr>
               </thead>

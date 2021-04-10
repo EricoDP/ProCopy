@@ -2,7 +2,8 @@
 
   class ServiceFile{
 
-    private $FileHandler;
+    private $jsonHandler;
+    private $textHandler;
     private $Utilities;
     private $directory;
 
@@ -15,7 +16,7 @@
     }
 
     public function GetList(){
-      $transacciones = $this->FileHandler->ReadFile();
+      $transacciones = $this->jsonHandler->ReadFile();
       if($transacciones == null){
         $transacciones = array();
       }
@@ -42,7 +43,7 @@
 
       $item->ID = $id;
       array_push($transacciones,$item);
-      $this->FileHandler->SaveFile($transacciones);
+      $this->jsonHandler->SaveFile($transacciones);
       $this->txtHandler->SaveFile($transacciones);
     }
 
@@ -51,7 +52,7 @@
       $index = $this->Utilities->GetIndexElement($transacciones, "ID", $item->ID);
       if($index !== null){
         $transacciones[$index] = $item;
-        $this->FileHandler->SaveFile($transacciones);
+        $this->jsonHandler->SaveFile($transacciones);
         $this->txtHandler->SaveFile($transacciones);
       }
     }
@@ -61,7 +62,7 @@
       $index = $this->Utilities->getIndexElement($transacciones,"ID",$id);
       if($index !== null){
         unset($transacciones[$index]);
-        $this->FileHandler->SaveFile($transacciones);
+        $this->jsonHandler->SaveFile($transacciones);
         $this->txtHandler->SaveFile($transacciones);
       }
     }
