@@ -9,12 +9,13 @@
     public function __construct($ruta = "./"){
       $this->directory = "{$ruta}data";
       $this->filename = "transacciones";
-      $this->FileHandler = new JsonFileHandler();
+      $this->jsonHandler = new JsonFileHandler($this->directory,$this->filename);
+      $this->txtHandler = new SerializationFileHandler($this->directory,$this->filename);
       $this->Utilities = new Utilities();
     }
 
     public function GetList(){
-      $transacciones = $this->FileHandler->ReadFile($this->directory,$this->filename);
+      $transacciones = $this->FileHandler->ReadFile();
       if($transacciones == null){
         $transacciones = array();
       }
@@ -41,14 +42,17 @@
 
       $item->ID = $id;
       array_push($transacciones,$item);
-      $this->FileHandler->SaveFile($this->directory, $this->filename, $transacciones);
+      $this->FileHandler->SaveFile($transacciones);
+      $this->txtHandler->SaveFile($transacciones);
     }
 
     public function Edit($item){
       $transacciones = $this->GetList();
       $index = $this->Utilities->GetIndexElement($transacciones, "ID", $item->ID);
       if($index !== null){
-        $this->FileHandler->SaveFile($this->directory, $this->filename, $transacciones);
+        $transacciones[$index] = $item;
+        $this->FileHandler->SaveFile($transacciones);
+        $this->txtHandler->SaveFile($transacciones);
       }
     }
 
@@ -57,7 +61,8 @@
       $index = $this->Utilities->getIndexElement($transacciones,"ID",$id);
       if($index !== null){
         unset($transacciones[$index]);
-        $this->FileHandler->SaveFile($this->directory, $this->filename, $transacciones);
+        $this->FileHandler->SaveFile($transacciones);
+        $this->txtHandler->SaveFile($transacciones);
       }
     }
   }

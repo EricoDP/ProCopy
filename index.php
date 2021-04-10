@@ -48,7 +48,6 @@
               </div>
             </div>
             <div class="fw-bold">Formulario de transaccion</div>
-            <form class="ms-1" action="./operations/add.php" method="POST" enctype="multipart/form-data">
             <div class="ms-1">
               <div class="mb-3">
                 <label for="txtMonto" class="form-label">Monto</label>
@@ -104,7 +103,7 @@
                 <?php foreach($transacciones as $key => $transaccion): ?>
                   <tr>
                     <th scope="row"><?= $transaccion->ID ?></th>
-                    <td><?= $transaccion->Monto ?></td>
+                    <td>$<?= $transaccion->Monto ?>.00</td>
                     <td><?= $transaccion->Fecha ?></td>
                     <td><?= $transaccion->Descripcion ?></td>
                     <td>
