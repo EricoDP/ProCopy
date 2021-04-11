@@ -1,0 +1,2 @@
+- [10/04/21 11:15PM][Insertar]: {"ID":"607269d6defba3.78475017","Monto":"3000","Fecha":"10-04-21 11:15PM","Descripcion":"Monto"} 
+- [10/04/21 11:17PM][Insertar]: {"ID":"60726a34df5a73.99703688","Monto":"3000","Fecha":"10-04-21 11:17PM","Descripcion":"Deuda"} 

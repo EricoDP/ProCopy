@@ -1,1 +1,1 @@
-a:0:{}
+a:2:{i:0;O:8:"stdClass":4:{s:2:"ID";s:23:"607269d6defba3.78475017";s:5:"Monto";s:4:"3000";s:5:"Fecha";s:16:"10-04-21 11:15PM";s:11:"Descripcion";s:5:"Monto";}i:1;O:11:"Transaccion":4:{s:2:"ID";s:23:"60726a34df5a73.99703688";s:5:"Monto";s:4:"3000";s:5:"Fecha";s:16:"10-04-21 11:17PM";s:11:"Descripcion";s:5:"Deuda";}}

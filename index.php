@@ -3,6 +3,7 @@
   require_once './FileHandler/FileHandlerBase.php';
   require_once './FileHandler/SerializationFileHandler.php';
   require_once './FileHandler/JsonFileHandler.php';
+  require_once './FileHandler/CsvFileHandler.php';
 
   require_once './operations/serviceFile.php';
   require_once './helpers/utilities.php';
