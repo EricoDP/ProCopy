@@ -19,7 +19,24 @@
     }
 
     public function ReadFile(){
-      return null;
+      $this->CreateDirectory($this->directory);
+      $path = $this->directory . "/" . $this->filename . ".csv";
+      $record = array();
+      if(file_exists($path)){
+        $file = fopen($path,"r");
+        if($file !== false){
+          while (($d = fgetcsv($file,0,',')) !== false) {
+            $a = count($d);
+            $data = new Transaccion($d[$a-3],$d[$a-2],$d[$a-1]);
+            if($a == 4){
+              $data->ID = $d[$a-4];
+            }
+            array_push($record,$data);
+          }
+          array_shift($record);
+        }
+      }
+      return $record;
     }
   }
 

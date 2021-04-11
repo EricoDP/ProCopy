@@ -18,7 +18,7 @@
     }
 
     public function GetList(){
-      $transacciones = $this->jsonHandler->ReadFile();
+      $transacciones = $this->txtHandler->ReadFile();
       if($transacciones == null){
         $transacciones = array();
       }
