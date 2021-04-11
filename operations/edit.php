@@ -5,7 +5,7 @@
   require_once '../FileHandler/JsonFileHandler.php';
   require_once '../FileHandler/CsvFileHandler.php';
   require_once '../FileHandler/Logger.php';
-  
+
   require_once './serviceFile.php';
   require_once '../helpers/utilities.php';
   require_once '../models/transaccion.php';
@@ -21,11 +21,11 @@
   if(isset($_POST["ID"]) && isset($_POST["Monto"]) && isset($_POST["Descripcion"]) && isset($_POST["Fecha"])){
 
     $transaccion = new Transaccion(
-      $_POST["Monto"],
       $_POST["Fecha"],
+      $_POST["Monto"],
       $_POST["Descripcion"]
-    ); 
-    
+    );
+
     $transaccion->ID = $_POST["ID"];
     $service->Edit($transaccion);
     header("Location: ../index.php");

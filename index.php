@@ -45,10 +45,10 @@
             <div class="fw-bold">Archivo de transaccion</div>
             <div class="ms-1">
               <div class="mb-3 ">
-                <label for="archivoTransaccion" class="form-label">Archivo JSON de Transaccion</label>
+                <label for="archivoTransaccion" class="form-label">JSON o CSV</label>
                 <div class="input-group">
                   <input class="form-control" type="file" accept=".json, .csv" id="archivoTransaccion" name="archivoTransaccion">
-                  <button onclick="" class="btn btn-outline-primary" type="button">Enviar</button>
+                  <button class="btn btn-outline-primary" type="submit">Enviar</button>
                 </div>
               </div>
             </div>

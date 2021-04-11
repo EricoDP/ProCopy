@@ -18,7 +18,7 @@
     }
 
     public function GetList(){
-      $transacciones = $this->txtHandler->ReadFile();
+      $transacciones = $this->jsonHandler->ReadFile();
       if($transacciones == null){
         $transacciones = array();
       }
@@ -50,6 +50,45 @@
       $this->jsonHandler->SaveFile($transacciones);
       $this->txtHandler->SaveFile($transacciones);
       $this->csvHandler->SaveFile($transacciones);
+    }
+
+    public function AddGroup($path, $name, $ext){
+      $transacciones = $this->GetList();
+      $groupHandler = null;
+      if($ext == "json"){
+        $groupHandler = new JsonFileHandler($path,$name);
+      }elseif($ext == "csv"){
+        $groupHandler = new CsvFileHandler($path,$name);
+      }
+      $content = $groupHandler->ReadAddfile($path,$name);
+      foreach($content as $item){
+        do {
+          $not_in_list = true;
+          $id = uniqid('',true);
+          foreach ($transacciones as $transaccion) {
+            if($id == $transaccion->ID){
+              $not_in_list = false;
+            }
+          }
+        } while ($not_in_list == false);
+
+        date_default_timezone_set("America/Santo_Domingo");
+        $fecha = date('d-m-y h:iA', time());
+
+        $transaccion = new Transaccion(
+          $fecha,
+          $item->Monto,
+          $item->Descripcion
+        );
+
+        $transaccion->ID = $id;
+        array_push($transacciones,$transaccion);
+        $log = new Logger("Insertar",$transaccion);
+        $log->writeAddLog();
+        $this->jsonHandler->SaveFile($transacciones);
+        $this->txtHandler->SaveFile($transacciones);
+        $this->csvHandler->SaveFile($transacciones);
+      }
     }
 
     public function Edit($item){

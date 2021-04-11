@@ -27,6 +27,15 @@
         return null;
       }
     }
+
+    public function ReadAddfile($direct, $name){
+      $path = $this->directory . "/" . $this->filename;
+      $record = array();
+      if(file_exists($path)){
+        $record = json_decode(file_get_contents($path));
+      }
+      return $record;
+    }
   }
 
 ?>

@@ -38,6 +38,23 @@
       }
       return $record;
     }
+
+    public function ReadAddfile($direct, $name){
+      $path = $this->directory . "/" . $this->filename;
+      $record = array();
+      if(file_exists($path)){
+        $file = fopen($path,"r");
+        if($file !== false){
+          while (($d = fgetcsv($file,0,',')) !== false) {
+            $a = count($d);
+            $data = new Transaccion(null,$d[$a-2],$d[$a-1]);
+            array_push($record,$data);
+          }
+          array_shift($record);
+        }
+      }
+      return $record;
+    }
   }
 
 ?>

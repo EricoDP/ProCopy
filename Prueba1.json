@@ -1,0 +1,26 @@
+[
+    {
+        "ID": "607269d6defba3.78475017",
+        "Descripcion": "Monto prueba",
+        "Fecha": "10-04-21 11:15PM",
+        "Monto": "3000"
+    },
+    {
+        "ID": "60726a34df5a73.99703688",
+        "Descripcion": "Deuda prueba",
+        "Fecha": "10-04-21 11:17PM",
+        "Monto": "3000"
+    },
+    {
+        "ID": "60735d3d130393.35548426",
+        "Descripcion": "Monto",
+        "Fecha": "10-04-21 11:15PM",
+        "Monto": "3000"
+    },
+    {
+        "ID": "60735d3d135945.90823880",
+        "Descripcion": "Deuda",
+        "Fecha": "10-04-21 11:17PM",
+        "Monto": "3000"
+    }
+]

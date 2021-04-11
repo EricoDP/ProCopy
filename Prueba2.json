@@ -1,0 +1,19 @@
+[
+    {
+        "Descripcion": "Monto prueba",
+        "Monto": "3000"
+    },
+    {
+        "Descripcion": "Deuda prueba",
+        "Monto": "3000"
+    },
+    {
+        "Descripcion": "Monto",
+        "Fecha": "10-04-21 11:15PM",
+        "Monto": "3000"
+    },
+    {
+        "Descripcion": "Deuda",
+        "Monto": "3000"
+    }
+]
